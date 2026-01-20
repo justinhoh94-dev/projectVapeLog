@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>VapeLog</string>
+    <key>CFBundleDisplayName</key>
+    <string>VapeLog</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.vapelog.app</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>UIRequiredDeviceCapabilities</key>
+    <array>
+        <string>arm64</string>
+    </array>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- Camera permissions for ML label scanning -->
+    <key>NSCameraUsageDescription</key>
+    <string>VapeLog needs camera access to scan cannabis product labels and automatically extract cannabinoid and terpene information.</string>
+
+    <!-- Photo library permissions for saving scanned labels -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>VapeLog can save scanned product labels to your photo library for your records.</string>
+
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>VapeLog can save scanned product labels to your photo library.</string>
+
+    <!-- User notifications for session reminders -->
+    <key>NSUserNotificationsUsageDescription</key>
+    <string>VapeLog sends reminders to check in and record how you're feeling after a session.</string>
+</dict>
+</plist>
