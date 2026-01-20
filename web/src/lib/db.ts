@@ -175,14 +175,14 @@ export async function calculateAverageEffects(productId: number): Promise<{ posi
 
     for (const checkIn of checkIns) {
       const positive = [
-        checkIn.awake, checkIn.active, checkIn.cerebral, checkIn.social,
-        checkIn.euphoric, checkIn.creative, checkIn.focused
-      ].reduce((sum, val) => sum + (val || 0), 0) / 7;
+        checkIn.awake ?? 0, checkIn.active ?? 0, checkIn.cerebral ?? 0, checkIn.social ?? 0,
+        checkIn.euphoric ?? 0, checkIn.creative ?? 0, checkIn.focused ?? 0
+      ].reduce((sum, val) => sum + val, 0) / 7;
 
       const negative = [
-        checkIn.tired, checkIn.groggy, checkIn.anxious, checkIn.antisocial,
-        checkIn.paranoia, checkIn.dryMouth, checkIn.dryEyes, checkIn.racingHeart
-      ].reduce((sum, val) => sum + (val || 0), 0) / 8;
+        checkIn.tired ?? 0, checkIn.groggy ?? 0, checkIn.anxious ?? 0, checkIn.antisocial ?? 0,
+        checkIn.paranoia ?? 0, checkIn.dryMouth ?? 0, checkIn.dryEyes ?? 0, checkIn.racingHeart ?? 0
+      ].reduce((sum, val) => sum + val, 0) / 8;
 
       positiveSum += positive;
       negativeSum += negative;

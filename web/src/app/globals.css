@@ -31,19 +31,27 @@ body {
 
 @layer utilities {
   .glass-card {
-    @apply bg-white/10 backdrop-blur-md border border-white/30 rounded-3xl;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1.5rem;
   }
 
   .glass-button {
-    @apply bg-white/12 backdrop-blur-sm border border-white/25 rounded-3xl transition-all duration-200;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 1.5rem;
+    transition: all 0.2s;
   }
 
   .glass-button:hover {
-    @apply bg-white/16 border-white/35;
+    background-color: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.35);
   }
 
   .glass-button:active {
-    @apply scale-[0.98];
+    transform: scale(0.98);
   }
 
   .text-shadow {

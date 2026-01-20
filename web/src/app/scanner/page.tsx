@@ -74,8 +74,11 @@ export default function ScannerPage() {
         }, 'image/jpeg', 0.95);
       });
 
+      // Convert Blob to File for Tesseract
+      const file = new File([blob], 'capture.jpg', { type: 'image/jpeg' });
+
       // Perform OCR scan
-      const result = await scanImage(blob);
+      const result = await scanImage(file);
 
       setScanResult(result);
     } catch (err) {
