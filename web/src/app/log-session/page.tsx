@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ArrowLeft, Camera } from 'lucide-react';
 import Link from 'next/link';
 import { addProduct, addSession } from '@/lib/db';
 import { ScanResult } from '@/lib/scanner';
 
-export default function LogSessionPage() {
+function LogSessionContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const fromScan = searchParams.get('fromScan') === 'true';
@@ -260,5 +260,17 @@ export default function LogSessionPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function LogSessionPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-vape-gradient flex items-center justify-center">
+        <div className="text-white">Loading...</div>
+      </div>
+    }>
+      <LogSessionContent />
+    </Suspense>
   );
 }
