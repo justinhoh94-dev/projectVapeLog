@@ -1,6 +1,10 @@
 # VapeLog - Cannabis Usage Tracker
 
-A privacy-first iOS app for tracking cannabis usage with ML-powered label scanning and personalized recommendations.
+A privacy-first cannabis tracking app with ML-powered label scanning and personalized recommendations.
+
+**Available on:**
+- 📱 **iOS Native App** - Swift + SwiftUI (see `/VapeLog/`)
+- 🌐 **Web App (PWA)** - Next.js + React (see `/web/`) ← **Use this on your phone!**
 
 ## Features
 
@@ -22,8 +26,31 @@ A privacy-first iOS app for tracking cannabis usage with ML-powered label scanni
 - **Data Export** - CSV/JSON export with optional encrypted cloud backup
 - **Notifications** - Background reminders for check-ins
 
+## Quick Start
+
+### 🌐 Use Web App (Recommended for Phone)
+
+```bash
+cd web
+npm install
+npm run dev
+# Open http://localhost:3000 on your phone
+# Or deploy to Vercel/Netlify and access anywhere!
+```
+
+See `/web/README.md` for detailed web app instructions.
+
+### 📱 Use iOS Native App
+
+```bash
+cd VapeLog
+open Package.swift  # Opens in Xcode
+# Press Cmd+R to run on simulator/device
+```
+
 ## Project Structure
 
+### iOS App
 ```
 VapeLog/
 ├── Sources/VapeLog/
@@ -54,13 +81,44 @@ VapeLog/
 └── README.md
 ```
 
+### Web App
+```
+web/
+├── src/
+│   ├── app/                            # Next.js pages
+│   │   ├── page.tsx                    # Home page
+│   │   ├── scanner/page.tsx            # Camera scanner with OCR
+│   │   ├── log-session/page.tsx        # Session logging form
+│   │   ├── terpenes/page.tsx           # Terpene education
+│   │   └── insights/page.tsx           # Analytics dashboard
+│   └── lib/
+│       ├── db.ts                       # IndexedDB (Dexie)
+│       ├── scanner.ts                  # Tesseract.js OCR
+│       └── terpenes.ts                 # Terpene data
+├── public/
+│   └── manifest.json                   # PWA manifest
+└── package.json
+```
+
 ## Tech Stack
+
+### iOS App
 
 - **SwiftUI** - Modern declarative UI framework
 - **GRDB** - Type-safe SQLite wrapper for local storage
 - **Vision Framework** - On-device OCR for label scanning
 - **AVFoundation** - Camera capture for ML scanning
 - **Core ML** - Future: On-device ML models for predictions
+
+### Web App (PWA)
+
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first styling
+- **Dexie** - IndexedDB wrapper for local storage
+- **Tesseract.js** - Browser-based OCR for label scanning
+- **WebRTC** - Camera access via MediaDevices API
+- **Lucide React** - Icon library
 
 ## Setup Instructions
 
